@@ -37,7 +37,8 @@ const musicApi = {
     })
       .then(res => {
         if(!res.ok) throw 'No cover art found';
-        return res.json();
+        const imageUrl = res.url.split('https://cors-anywhere.herokuapp.com/')[1];
+        return imageUrl;
       });
   },
   getReleaseRecordings(releaseId){
