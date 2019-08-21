@@ -16,7 +16,6 @@ export default class Search extends Component{
         <h1>Search!!! Find  it!!</h1>
         <p>hello</p>
       </>
-      
     );
   }
 }
