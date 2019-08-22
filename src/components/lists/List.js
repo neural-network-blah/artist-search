@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListItem from '../listItem/ListItem';
+import styles from './List.css';
 
 function List({ array, keyName, name, clickHandler }){
   const listItems = array.map(item => (
@@ -10,7 +11,7 @@ function List({ array, keyName, name, clickHandler }){
   ));
 
   return(
-    <ul>
+    <ul className={styles.List}>
       {listItems}
     </ul>
   );
