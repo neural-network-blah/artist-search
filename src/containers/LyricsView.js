@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SongTitle from '../components/SongTitle';
 
 const title = 'Best Song Ever';
-const lyrics = 'here are some song lyrics'
+const lyrics = 'here are some song lyrics';
 
 
 export default class LyricsView extends Component{
