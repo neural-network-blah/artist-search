@@ -24,7 +24,7 @@ export default function App() {
       </ul>
 
       <Route exact path="/" component={Search} />
-      <Route path="/artist" component={ArtistView} />
+      <Route path="/artist/:id" component={ArtistView} />
       <Route path="/release" component={ReleaseView} />
       <Route path="/lyrics" component={LyricsView} />
     </Router>
