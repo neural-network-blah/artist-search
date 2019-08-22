@@ -25,8 +25,8 @@ export default class Search extends Component{
   handleSubmit = (event) => {
     event.preventDefault();
     searchParams.set('search', this.state.search);
-    // console.log(paramsString);
-    // console.log(searchParams.toString());
+    console.log(paramsString);
+    console.log(searchParams.toString());
 
     musicApi.findArtists(this.state.search).then(artists => {
       console.log(artists);
@@ -48,7 +48,7 @@ export default class Search extends Component{
       <>
         <h1>Search!!! Find  it!!</h1>
         <SearchForm search={search} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
-        <List array={ arrResult } keyName='id' name='name' clickHandler={()=>{}} />
+        <List array={ arrResult } keyName='id' name='name' location='/artist/' />
       </>
     );
   }
