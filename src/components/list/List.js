@@ -4,15 +4,20 @@ import ListItem from '../listItem/ListItem';
 import styles from './List.css';
 import { Link } from 'react-router-dom';
 
-function List({ array, keyName, name, clickHandler, location }){
-  console.log(name, '### NAME ###');
-  const listItems = array.map(item => (
-    <li key={item[keyName]} onClick={clickHandler(item[keyName])} >
-      <Link to={location[item[keyName]]}>
-        <ListItem name={item[name]} />
-      </Link>
-    </li>
-  ));
+function List({ array, keyName, name, location }){
+  
+  const listItems = array.map(item => {
+    const id = item[keyName];
+
+    return(
+      <li key={item[keyName]} >
+        <Link to={`${location}${id}`}>
+          <ListItem name={item[name]} />
+        </Link>
+      </li>
+    );
+  });
+    
 
   return(
     <ul className={styles.List}>
@@ -24,7 +29,6 @@ function List({ array, keyName, name, clickHandler, location }){
 List.propTypes = {
   array: PropTypes.array.isRequired,
   keyName: PropTypes.string,
-  clickHandler: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired
 };
