@@ -47,9 +47,7 @@ const musicApi = {
         if(!res.ok) throw 'No recordings found';
         return res.json();
       })
-      .then(json => ({
-        recordings: json.recordings
-      }));
+      .then(json => json.recordings);
   },
   getRecordingLyrics(artist, title){
     return fetch(`${corsURL}https://api.lyrics.ovh/v1/${artist}/${title}`, {
