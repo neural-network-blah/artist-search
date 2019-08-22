@@ -11,9 +11,7 @@ const musicApi = {
         if(!res.ok) throw 'No artists found';
         return res.json();
       })
-      .then(json => ({
-        artists: json.artists
-      }));
+      .then(json => json.artists);
   },
   getArtistReleases(artistId){
     return fetch(`${corsURL}http://musicbrainz.org/ws/2/release?artist=${artistId}&fmt=json`, {
