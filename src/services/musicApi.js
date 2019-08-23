@@ -1,8 +1,8 @@
 const corsURL = 'https://cors-anywhere.herokuapp.com/';
 
 const musicApi = {
-  findArtists(search){
-    return fetch(`${corsURL}http://musicbrainz.org/ws/2/artist?query=${search}&fmt=json&limit=25`, {
+  findArtists(search, page){
+    return fetch(`${corsURL}http://musicbrainz.org/ws/2/artist?query=${search}&fmt=json&limit=25&offset=${(page - 1) * 25}`, {
       headers: {
         origins: null
       }
@@ -11,7 +11,7 @@ const musicApi = {
         if(!res.ok) throw 'No artists found';
         return res.json();
       })
-      .then(json => json.artists);
+      .then(json => json);
   },
   getArtistReleases(artistId){
     return fetch(`${corsURL}http://musicbrainz.org/ws/2/release?artist=${artistId}&fmt=json`, {
