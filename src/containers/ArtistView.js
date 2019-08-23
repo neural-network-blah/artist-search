@@ -15,7 +15,6 @@ export default class ArtistView extends Component{
   componentDidMount() {
     musicApi.getArtistReleases(this.props.match.params.id).then(artist => {
       this.setState({ recordings: artist });
-      console.log(this.state.recordings);
     });
   }
     
@@ -29,5 +28,3 @@ export default class ArtistView extends Component{
     );
   }
 }
-
-// this.props.match.params.id

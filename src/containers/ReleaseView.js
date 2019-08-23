@@ -6,8 +6,6 @@ import List from '../components/list/List';
 import musicApi from '../services/musicApi';
 import image from '../assets/poster_holder.jpg';
 
-const url = 'http://ia800706.us.archive.org/6/items/mbid-032c0dcf-32fb-48df-854c-c4ffdea82009/mbid-032c0dcf-32fb-48df-854c-c4ffdea82009-4732102938.jpg';
-
 export default class ReleaseView extends Component{
 
   state = {

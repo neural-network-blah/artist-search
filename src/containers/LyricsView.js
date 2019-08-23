@@ -6,7 +6,6 @@ import musicApi from '../services/musicApi';
 
 const title = 'Best Song Ever';
 
-
 export default class LyricsView extends Component{
   state = {
     title: '',
@@ -18,10 +17,9 @@ export default class LyricsView extends Component{
   }
 
   componentDidMount() {
-    musicApi.getRecordingLyrics(this.props.match.params.).then(song => {
+    musicApi.getRecordingLyrics(this.props.match.params).then(song => {
       this.setState({ lyrics: song });
     });
-    console.log(this.state.lyrics);
   }
   
   render(){
