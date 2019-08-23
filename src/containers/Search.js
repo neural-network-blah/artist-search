@@ -14,7 +14,7 @@ export default class Search extends Component{
   state = {
     search: '',
     page: 1,
-    pageCount: null,
+    pageCount: 1,
     arrResult: [],
     searchParams: {}
   }
@@ -22,12 +22,13 @@ export default class Search extends Component{
   componentDidMount(){
     this.searchParams = new URLSearchParams(this.props.location.search);
     this.setState({
-      search: this.searchParams.get('search'),
-      page: parseInt(this.searchParams.get('page'))
+      search: this.searchParams.get('search')
     }, () => {
-      musicApi.findArtists(this.state.search, this.state.page).then(artists => {
-        this.setState({ arrResult: artists.artists, pageCount: Math.ceil(artists.count / 25) });
-      });
+      if(this.state.search){
+        musicApi.findArtists(this.state.search, this.state.page).then(artists => {
+          this.setState({ arrResult: artists.artists, pageCount: Math.ceil(artists.count / 25) });
+        });
+      }
     });
   }
 
@@ -43,20 +44,22 @@ export default class Search extends Component{
     console.log(this.state.page);
 
     musicApi.findArtists(this.state.search, this.state.page).then(artists => {
-      this.setState({ arrResult: artists.artists });
+      this.setState({ arrResult: artists.artists, pageCount: Math.ceil(artists.count / 25), page: 1 });
     });
   }
 
   pageClicker = (pager) => {
+    musicApi.findArtists(this.state.search, this.state.page + pager).then(artists => {
+      this.setState({ arrResult: artists.artists });
+    });
     this.setState(state => {
       return{ page: state.page + pager };
     });
   }
 
   render(){
-
     const {
-      search, arrResult, page
+      search, arrResult, page, pageCount
     } = this.state;
 
     return(
@@ -64,7 +67,7 @@ export default class Search extends Component{
         <h1>Search!!! Find  it!!</h1>
         <SearchForm search={search} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
         <List array={ arrResult } keyName='id' name='name' location='/artist/' />
-        <Pager pageCount={13} currentPage={page} pageClicker={this.pageClicker} />
+        <Pager pageCount={pageCount} currentPage={page} pageClicker={this.pageClicker} />
       </>
     );
   }
