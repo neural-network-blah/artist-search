@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SongTitle({ title, lyrics }) {
+function SongTitle({ title }) {
   return(
     <>
       <h2>{title}</h2>
-      <p>{lyrics}</p>
     </>  
   );
 }
