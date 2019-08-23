@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import image from '../../assets/poster_holder.jpg';
 
-function Poster({ url }) {
+
+const defaultPic = image;
+function Poster({ releaseId }) {
   return(
-    <img src={url} />
+    <img src={`http://coverartarchive.org/release/${releaseId}/front`} />
   );
 }
 
 Poster.propTypes = {
-  url: PropTypes.string
+  releaseId: PropTypes.string
 };
 
 export default Poster;

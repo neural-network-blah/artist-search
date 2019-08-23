@@ -31,9 +31,7 @@ const musicApi = {
         if(!res.ok) throw 'No recordings found';
         return res.json();
       })
-      .then(json => ({
-        recordings: json.recordings
-      }));
+      .then(json => json.recordings);
   },
   getRecordingLyrics(artistId, title){
     const artist = musicApi.findArtists(artistId).artist.name;
@@ -43,9 +41,7 @@ const musicApi = {
         if(!res.ok) throw 'The Lyrics are not to be found!!';
         return res.json();
       })
-      .then(json => ({
-        lyrics: json.lyrics
-      }));
+      .then(json => json.lyrics);
   }
 };
 

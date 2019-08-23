@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import musicApi from '../services/musicApi';
 import SearchForm from '../components/search/SearchForm';
-import List from '../components/List/List';
+import List from '../components/list/List';
 import Pager from '../components/pager/Pager';
 
 export default class Search extends Component{
@@ -72,5 +72,3 @@ export default class Search extends Component{
     );
   }
 }
-
-// pageCount, currentPage, clickHandler
