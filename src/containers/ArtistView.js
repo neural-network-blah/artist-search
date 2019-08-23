@@ -15,5 +15,3 @@ export default class ArtistView extends Component{
     );
   }
 }
-
-// this.props.match.params.id
