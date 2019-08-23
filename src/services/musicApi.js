@@ -59,9 +59,7 @@ const musicApi = {
         if(!res.ok) throw 'The Lyrics are not to be found!!';
         return res.json();
       })
-      .then(json => ({
-        lyrics: json.lyrics
-      }));
+      .then(json => json.lyrics);
   }
 };
 
