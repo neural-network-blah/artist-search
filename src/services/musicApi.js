@@ -15,7 +15,7 @@ const musicApi = {
         if(!res.ok) throw 'No releases found';
         return res.json();
       })
-      .then(json => json.releases);
+      .then(json => json);
   },
   getReleaseCover(releaseId){
     return fetch(`${corsURL}http://coverartarchive.org/release/${releaseId}/front`)
