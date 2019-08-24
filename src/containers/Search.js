@@ -21,6 +21,7 @@ export default class Search extends Component{
   
   componentDidMount(){
     this.searchParams = new URLSearchParams(this.props.location.search);
+    console.log(this.props.location.search);
     this.setState({
       search: this.searchParams.get('search')
     }, () => {
@@ -39,8 +40,7 @@ export default class Search extends Component{
   handleSubmit = (event) => {
     event.preventDefault();
     this.searchParams.set('search', this.state.search);
-    this.searchParams.set('page', this.state.page);
-    this.props.history.push(`/?search=${this.state.search}&page=${this.state.page}`);
+    this.props.history.push(`/?search=${this.state.search}`);
     console.log(this.state.page);
 
     musicApi.findArtists(this.state.search, this.state.page).then(artists => {
