@@ -23,10 +23,13 @@ export default function App() {
         </li>
       </ul>
 
-      <Route exact path="/:page?" component={Search} />
-      <Route path="/artist/:id/:page" component={ArtistView} />
-      <Route path="/release/:id" component={ReleaseView} />
-      <Route path="/lyrics" component={LyricsView} />
+      <Route exact path="/" component={Search} />
+      <Route path="/artist/:artistId" component={ArtistView} />
+      <Route path="/release/:artistId/:releaseId" component={ReleaseView} />
+      <Route path="/lyrics/:artistId/:releaseId" component={LyricsView} />
     </Router>
   );
 }
+
+// Could continue with passing name to the paths as :artistName to get lyrics for a song
+// Similar route with release name
