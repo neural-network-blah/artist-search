@@ -17,7 +17,7 @@ export default class LyricsView extends Component{
   }
 
   componentDidMount() {
-    musicApi.getRecordingLyrics(this.props.match.params).then(song => {
+    musicApi.getRecordingLyrics(this.props.match.params.artistId, this.props.match.params.releaseId).then(song => {
       this.setState({ lyrics: song });
     });
   }
